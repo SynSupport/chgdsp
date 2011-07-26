@@ -1,0 +1,43 @@
+SUBMISSION AUTHOR:  Nigel White  
+		    mailto:nigel@synergex.com
+		    Systems Programmer
+		    Synergex; 2330 Gold Meadow Way;
+		    Gold River, CA 95670 	
+		    Phone: 916/853 0366
+		    http://www.synergex.com
+
+SUBMISSION NAME:    CHGDSP
+  
+PLATFORM:	    VMS v5.5-2 or higher
+
+SYNERGY VERSION:    Synergy v5.7.9 or higher
+
+DESCRIPTION:	    VMS - Migrating from DISPLAY to W_xxxx routines 
+
+ This command file facilitates the migration from DISPLAY statements
+ to usage of the W_XXXX routines by changes the following Synergy
+ Language elements:
+
+	DISPLAY(		to	XCALL W_DISP(CUR_WINDOW
+	$SCR_POS(n1, n1)	to	WD_POS, n1, n2
+	$SCR_CLR(?)		to	WD_CLR, ?
+	$SCR_ATT(?)		to	WD_ATTR+ATTR_LOAD+?
+
+ Of course, YOU have to put in the XCALL W_PROC statement to CREATE the 
+ CUR_WINDOW window, as a default, 24 line, 80 column window, and place 
+ it at line 1 column 1
+
+ Usage:
+
+	$@CHGDSP file.dbl
+
+   How about *this* for a disclaimer?:
+   THE INFORMATION AND CODE PROVIDED IS PROVIDED AS IS WITHOUT WARRANTY 
+   OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO 
+   THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR 
+   PURPOSE. IN NO EVENT SHALL SYNERGEX BE LIABLE FOR ANY DAMAGES 
+   WHATSOEVER INCLUDING DIRECT, INDIRECT, INCIDENTAL, CONSEQUENTIAL, LOSS 
+   OF BUSINESS PROFITS OR SPECIAL DAMAGES, EVEN IF SYNERGEX HAS BEEN 
+   ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+
+   Basically, keep backups of programs that you feed to this!
